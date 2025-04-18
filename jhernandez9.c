@@ -1,57 +1,30 @@
-//johnny hernandez
-//CSC 321
+//Johnny Hernandez
+//CSC321
 //Lab 9
 #include <stdio.h>
 #include <stdlib.h>
 #include <time.h>
 
 int main() {
-    int randInt, userGuess, attempts = 3;
-    srand(time(0));
+    int randInt, userGuess;
+    srand(time(NULL));
     randInt = (rand() % 20) + 1;
 
-    printf("%d\n", randInt);
+    printf("Guess a number between 1 through 20:\n");
+    scanf("%d", &userGuess);
 
-    while (attempts > 0) {
-
-        printf("\nGuess a number between 1 - 20\n");
-        printf("You have %d attempts left\n", attempts);
-
-        if (scanf("%d", &userGuess) != 1) {
-
-            printf("Invalid input! Input must be an integer\n");
-            while (getchar() != '\n'); 
-            continue;
-
-        }
-
-        if (userGuess < 1 || userGuess > 20) {
-
-            printf("Invalid input! Input must be in range of 1 - 20\n");
-            continue;
-
-        }
-
-        if (userGuess == randInt) {
-
-            printf("You Won!\n");
-            return 1;
-
-        } else if (userGuess < randInt) {
-
-            printf("Too low!\n");
-
-        } else {
-
-            printf("Too high!\n");
-
-        }
-
-        attempts--;
-
+    if(userGuess < 0 || userGuess > 20){
+        printf("You input a number that is out of range (1-20) re-enter a valid number\n");
     }
-    printf("Loser\n");
 
+    else if(userGuess == randInt){
+        printf("you won and guessed the number correctly!\n");
+    }
+    else if(userGuess < randInt){
+        printf("you lost and your guess is lower than my number which is %d\n", randInt);
+    }
+    else if(userGuess > randInt){
+        printf("you lost and your guess is greater than my number which is %d\n", randInt);
+    }
     return 0;
 }
-
