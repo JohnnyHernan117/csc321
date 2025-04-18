@@ -2,12 +2,9 @@
 //CSC 321
 //Lab 11
 #include <stdio.h>
-#include <stdlib.h>
 #include <math.h>
 
-double calculateHypotenuse(double height, double base){
-        return sqrt(height * height + base * base);
-}
+double calculateHypotenuse(double height, double base);
 
 int main(){
         double height, base, hypotenuse;
@@ -20,4 +17,9 @@ int main(){
 
         printf("The resulting hypotenuse is: %.2lf\n", hypotenuse);
 
+        return 0;
+}
+
+double calculateHypotenuse(double height, double base){
+        return sqrt((height * height) + (base * base));
 }
